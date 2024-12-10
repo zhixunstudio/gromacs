@@ -1,11 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url='https://raw.githubusercontent.com/zhixunstudio/gromacs/main/README.md'">
-    <title>Gromacs使用教程</title>
-</head>
-<body>
-    <p>如果没有跳转, 点击 <a href="https://raw.githubusercontent.com/zhixunstudio/gromacs/main/README.md">这里</a> 查看教程</p>
-</body>
-</html>
+<h1 id="gromacs-">Gromacs 确认与使用基础教程</h1>
+<h2 id="1-gromacs-">1. 确认Gromacs是否安装成功</h2>
+<p>打开您的PowerShell</p>
+<h4 id="windows-10-windows-11">Windows 10 或 Windows 11</h4>
+<p>使用搜索功能：</p>
+<ul>
+<li>点击任务栏上的“开始”按钮，或者使用键盘上的Windows键。</li>
+<li>在搜索栏中输入“PowerShell”。</li>
+<li><p>在搜索结果中，点击“Windows PowerShell”应用程序。如果您想要以管理员身份运行，可以右键点击“Windows PowerShell”，然后选择“以管理员身份运行”。</p>
+<h4 id="-">使用运行对话框：</h4>
+</li>
+<li><p>按下键盘上的Windows键 + R键打开“运行”对话框。</p>
+</li>
+<li>输入powershell，然后按Enter键或点击“确定”按钮。</li>
+<li><p>如果需要以管理员身份运行，可以输入powershell后，点击“确定”按钮，然后右键点击打开的PowerShell窗口，选择“以管理员身份运行”。</p>
+<h4 id="-">通过文件资源管理器：</h4>
+</li>
+<li><p>打开文件资源管理器。</p>
+</li>
+<li>在地址栏中输入powershell，然后按Enter键。</li>
+<li><p>如果需要以管理员身份运行，可以右键点击文件资源管理器中的空白处，选择“在此处打开PowerShell窗口”，然后右键点击打开的PowerShell窗口，选择“以管理员身份运行”。</p>
+<h4 id="-">使用任务管理器：</h4>
+</li>
+<li><p>按下Ctrl + Shift + Esc键打开任务管理器。</p>
+</li>
+<li>点击“文件”菜单，选择“运行新任务”。</li>
+<li>在“打开”字段中输入powershell，然后点击“确定”。</li>
+<li>如果需要以管理员身份运行，确保勾选“以管理员身份创建此任务”选项。</li>
+<li>通过快捷方式：</li>
+</ul>
+<h4 id="-powershell-">如果您的桌面或开始菜单中有PowerShell的快捷方式，直接双击它即可打开。</h4>
+<h2 id="2-gromacs-">2. 查看Gromacs版本信息</h2>
+<p>在PowerShell中输入以下命令来查看Gromacs的版本信息：</p>
+<pre><code class="lang-shell">gmx -<span class="hljs-built_in">version</span>
+</code></pre>
+<p>执行后，系统会输出Gromacs的版本信息，这表明Gromacs已经成功安装在您的系统上。
+<img src="https://github.com/user-attachments/assets/746c6dc9-696d-4476-bbbd-6dfafcae3cdd" alt="image"></p>
+<h2 id="3-gromacs">3. 理解Gromacs</h2>
+<p>Gromacs是一款功能强大的分子动力学模拟软件，它虽然没有图形用户界面（GUI），但这并不妨碍它在科学研究中的广泛应用。</p>
+<h3 id="gromacs-">Gromacs的基本概念</h3>
+<p>Gromacs不是一个点击操作的软件，而是一个通过编写和运行代码来模拟分子行为的科学工具。你可以把它想象成一个幕后英雄，它在计算机的深处工作，帮助我们理解和预测分子在不同条件下是如何运动和相互作用的。</p>
+<h3 id="gromacs-">Gromacs的工作机制</h3>
+<ul>
+<li><p>准备阶段：首先，你需要准备分子的初始结构，这通常是一个蛋白质或者其它生物分子的三维模型。</p>
+</li>
+<li><p>参数化：接着，你需要为分子的每个原子分配力场参数，这些参数描述了原子之间的相互作用力。</p>
+</li>
+<li><p>设置模拟：然后，你设置模拟的初始条件，比如温度、压力和模拟的时间长度。</p>
+</li>
+<li><p>能量最小化：在模拟开始之前，通常需要进行能量最小化，以确保分子结构的稳定性。</p>
+</li>
+<li><p>平衡阶段：模拟开始前，分子系统会在控制的温度和压力下进行一段时间的平衡，以接近实际的物理状态。</p>
+</li>
+<li><p>生产运行：平衡完成后，模拟进入生产阶段，分子动力学模拟正式开始，分子将根据物理定律自由运动。</p>
+</li>
+<li><p>数据分析：模拟结束后，你可以使用各种分析工具来研究模拟数据，比如分子的轨迹、能量变化等。</p>
+</li>
+</ul>
+<h2 id="4-gromacs-">4. 运行Gromacs模拟</h2>
+<ol>
+<li>在桌面上创建一个新的文件夹，例如命名为“test”。</li>
+<li>将您需要进行模拟计算的文件放入这个文件夹中。</li>
+<li>打开PowerShell，导航到该文件夹。</li>
+<li>输入以下命令来运行模拟，其中<code>xxx</code>和<code>xxxx</code>需要替换为您的输入文件名和参数：</li>
+</ol>
+<pre><code class="lang-shell"><span class="hljs-attribute">gmx mdrun xxx xxxx</span>
+</code></pre>
+<p>按下回车键，模拟将开始运行。</p>
+<h2 id="5-">5. 模拟完成后的数据后处理</h2>
+<p>模拟完成后，您可以使用如VMD（Visual Molecular Dynamics）或PyMOL等软件进行数据的后处理。</p>
+<h2 id="6-">6. 学习与探索</h2>
+<p>Gromacs的学习需要您自己慢慢探索和实践。</p>
+<p>虽然我给你提供了安装服务，但不提供教学和软件指导。有任务问题可以加我微信噢！微信号：Zhixun_for_science</p>
